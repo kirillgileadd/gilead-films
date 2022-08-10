@@ -1,5 +1,18 @@
+$navigationSize: 20%;
+
 .layout {
+	@apply relative;
 
+	> div:first-child {
+		@apply fixed top-0 bottom-0 overflow-y-auto border-r border-gray-700;
+		width: $navigationSize;
+		max-width: 350px;
+		background: var(--dark);
+	}
+
+	.main {
+		@apply min-h-screen p-layout;
+		margin-left: $navigationSize;
+		background: var(--dark);
+	}
 }
-
-

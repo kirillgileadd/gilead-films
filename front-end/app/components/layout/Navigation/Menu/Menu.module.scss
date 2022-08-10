@@ -1,0 +1,34 @@
+.menu {
+	@apply mb-12;
+	> h6 {
+		@apply text-gray-600 mb-3 text-sm;
+	}
+
+	.lists {
+		> ul {
+			> li {
+				@apply pl-layout my-6 relative after:content-[''] after:ml-0.5 after:absolute after:-left-0.5 after:top-0 after:h-full after:w-1 after:rounded-md;
+				> a {
+					> p {
+						@apply text-gray-600 ml-3;
+					}
+
+					> svg {
+						@apply fill-gray-600 w-5 h-5;
+					}
+				}
+
+				&.active {
+					@apply after:bg-primary;
+					> a > p {
+						@apply text-white;
+					}
+
+					> a > svg {
+						@apply fill-white;
+					}
+				}
+			}
+		}
+	}
+}
