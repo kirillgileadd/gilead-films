@@ -1,0 +1,20 @@
+.genre__list {
+	@apply flex flex-row gap-x-6;
+	.genre__item {
+		@apply basis-1/5 bg-gray-700 p-4 rounded-2xl transition-all;
+		&:hover {
+			@apply bg-gray-650 shadow-2xl scale-110;
+			> a > svg {
+				@apply fill-primary;
+			}
+		}
+
+		> a {
+			@apply flex flex-col justify-center items-center;
+		}
+
+		> a > svg {
+			@apply w-12 h-12 mb-6;
+		}
+	}
+}

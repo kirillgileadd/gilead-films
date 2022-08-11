@@ -17,7 +17,8 @@ module.exports = {
 				300: '#d9dae8',
 				500: '#999AA5',
 				600: '#66676E',
-				700: '#39393f',
+				650: '#434349',
+				700: '#26272C',
 				800: '#242529',
 				900: '#191B1F',
 				950: '#101215',
@@ -105,6 +106,10 @@ module.exports = {
 					backgroundColor: theme('colors.gray.950'),
 					color: theme('colors.white'),
 					boxShadow: theme('boxShadow.lg'),
+				},
+				'.text-title': {
+					color: theme('colors.white'),
+					fontSize: '1.5rem',
 				},
 			}),
 				addUtilities({

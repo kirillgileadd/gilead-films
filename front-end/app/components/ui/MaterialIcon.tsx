@@ -6,7 +6,7 @@ import { TypeMaterialIcons } from '@/shared/types/itcon.types'
 
 const MaterialIcon: FC<{ icon: TypeMaterialIcons }> = ({ icon }) => {
 	const Icon = MaterialIcons[icon]
-	return <Icon /> || <MaterialIcons.Md9KPlus />
+	return <Icon /> || <MaterialIcons.MdFilterDrama />
 }
 
 export default MaterialIcon

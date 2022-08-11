@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import Genres from '../../components/Genres/Genres'
 import Layout from '../../components/layout/Layout'
 
 import { IHome } from './home.interface'
@@ -8,7 +9,8 @@ import { IHome } from './home.interface'
 const Home: FC<IHome> = () => {
 	return (
 		<Layout>
-			<div>Home Page</div>
+			<h3>Home Page</h3>
+			<Genres />
 		</Layout>
 	)
 }
