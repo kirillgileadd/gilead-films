@@ -1,3 +1,20 @@
 .input {
-	@apply bg-transparent outline-0 rounded-3xl border border-gray-500 py-1.5 px-4;
+	@apply relative basis-1/2 transition-all items-center  flex rounded-3xl border-2 border-gray-600 py-1.5 px-4;
+
+	> svg {
+		@apply h-6 w-6 fill-gray-600 mr-2;
+	}
+
+	> input {
+		@apply bg-transparent outline-0;
+		&:focus {
+			&::placeholder {
+				visibility: hidden;
+			}
+		}
+	}
+
+	&::placeholder {
+		@apply text-gray-600;
+	}
 }

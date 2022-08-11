@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 
+import MaterialIcon from '@/ui/MaterialIcon'
+
 import styles from './SearchInput.module.scss'
 
 interface SearchInputProps {
@@ -9,15 +11,18 @@ interface SearchInputProps {
 
 const SearchInput: FC<SearchInputProps> = ({ value, onChange }) => {
 	return (
-		<input
-			placeholder="Search"
-			className={styles.input}
-			value={value}
-			onChange={onChange}
-			type="text"
-			name="search-input"
-			id="search-input"
-		/>
+		<div className={styles.input}>
+			<MaterialIcon icon="MdSearch" />
+			<input
+				className={styles.input__value}
+				placeholder="Search"
+				value={value}
+				onChange={onChange}
+				type="text"
+				name="search-input"
+				id="search-input"
+			/>
+		</div>
 	)
 }
 

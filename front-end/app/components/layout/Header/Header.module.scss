@@ -6,16 +6,6 @@
 		}
 	}
 
-	> input {
-		@apply basis-1/4 transition-all;
-		&:focus {
-			@apply grow;
-			&::placeholder {
-				visibility: hidden;
-			}
-		}
-	}
-
 	> svg {
 		@apply ml-auto w-9 h-9 basis-1/12;
 		> path {
