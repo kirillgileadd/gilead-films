@@ -1,6 +1,8 @@
-import { getGenresUrl } from '../api/api.config'
+import { getGenresUrl } from '@/configs/api.config'
+
 import { axiosClassic } from '../api/api.interceptors'
 import { IFetchGenreItem } from '../components/Genres/genres.interface'
+
 
 export const GenreService = {
 	async getGenres(searchTerm?: string) {

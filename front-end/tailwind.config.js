@@ -17,7 +17,7 @@ module.exports = {
 				300: '#d9dae8',
 				500: '#999AA5',
 				600: '#66676E',
-				650: '#434349',
+				650: '#2F2F33',
 				700: '#26272C',
 				800: '#242529',
 				900: '#191B1F',
@@ -110,6 +110,7 @@ module.exports = {
 				'.text-title': {
 					color: theme('colors.white'),
 					fontSize: '1.5rem',
+					fontWeight: 500,
 				},
 			}),
 				addUtilities({

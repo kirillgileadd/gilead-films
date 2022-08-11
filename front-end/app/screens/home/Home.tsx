@@ -1,17 +1,20 @@
 import { FC } from 'react'
 
+import { Meta } from '@/utils/meta/Meta'
+
 import Genres from '../../components/Genres/Genres'
-import Layout from '../../components/layout/Layout'
 
 import { IHome } from './home.interface'
 
 
 const Home: FC<IHome> = () => {
 	return (
-		<Layout>
-			<h3>Home Page</h3>
+		<Meta
+			title="Watch movies online"
+			description="MovieApp watch movies free online goblin"
+		>
 			<Genres />
-		</Layout>
+		</Meta>
 	)
 }
 

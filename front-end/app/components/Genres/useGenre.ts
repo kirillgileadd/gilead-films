@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 
 import { GenreService } from '@/services/GenreSevice'
 
-import { getGenreUrl } from '../../api/url.config'
+import { getGenreUrl } from '@/configs/url.config'
 
 import { IGenreItem } from './genres.interface'
 
