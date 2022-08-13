@@ -11,7 +11,9 @@ import styles from './Navigation.module.scss'
 const Navigation = () => {
 	return (
 		<div className={styles.navigation}>
-			<Logo />
+			<div className="ml-layout">
+				<Logo />
+			</div>
 			<Menu menu={menuData} />
 			<Menu menu={authMenu} />
 		</div>

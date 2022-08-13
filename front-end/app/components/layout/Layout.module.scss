@@ -14,5 +14,9 @@ $navigationSize: 20%;
 		@apply min-h-screen p-layout;
 		margin-left: $navigationSize;
 		background: var(--dark);
+
+		@media (min-width: 1920px) {
+			margin-left: 350px;
+		}
 	}
 }

@@ -8,7 +8,7 @@ import logo from '@/assets/img/logo.svg'
 const Logo: FC = () => {
 	return (
 		<Link href="/">
-			<a className="inline-block mx-layout cursor-pointer">
+			<a className="inline-block cursor-pointer">
 				<Image src={logo} width={114} height={45} draggable={false} />
 			</a>
 		</Link>

@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
-const primary = '#E30B13'
+const primary = '#9E00FF'
 
 module.exports = {
 	content: [
@@ -84,9 +84,10 @@ module.exports = {
 					backgroundColor: primary,
 					color: '#fff',
 					borderRadius: '0.65rem',
+					padding: '8px 15px',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
-						backgroundColor: '#ff0009',
+						backgroundColor: '#8300D3',
 					},
 				},
 
@@ -128,7 +129,11 @@ module.exports = {
 						alignItems: 'center',
 						justifyContent: 'space-between',
 					},
-
+					'.flex-center': {
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-between',
+					},
 					'.image-like-bg': {
 						objectPosition: 'center',
 						objectFit: 'cover',

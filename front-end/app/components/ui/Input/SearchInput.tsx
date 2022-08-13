@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Ref, forwardRef } from 'react'
 
 import MaterialIcon from '@/ui/MaterialIcon'
 
@@ -8,25 +8,29 @@ interface SearchInputProps {
 	value: string
 	onChange: React.ChangeEventHandler<HTMLInputElement>
 	ref?: any
-	onBlur: () => void
+	onBlur?: () => void
+	focus?: boolean
 }
 
-const SearchInput: FC<SearchInputProps> = ({ value, onChange, onBlur }) => {
-	return (
-		<div className={styles.input}>
-			<MaterialIcon icon="MdSearch" />
-			<input
-				onBlur={onBlur}
-				className={styles.input__value}
-				placeholder="Search"
-				value={value}
-				onChange={onChange}
-				type="text"
-				name="search-input"
-				id="search-input"
-			/>
-		</div>
-	)
-}
+// eslint-disable-next-line react/display-name
+const SearchInput: FC<SearchInputProps> = forwardRef(
+	({ value, onChange }, ref: Ref<HTMLInputElement>) => {
+		return (
+			<div className={styles.input}>
+				<MaterialIcon icon="MdSearch" />
+				<input
+					ref={ref}
+					className={styles.input__value}
+					placeholder="Search"
+					value={value}
+					onChange={onChange}
+					type="text"
+					name="search-input"
+					id="search-input"
+				/>
+			</div>
+		)
+	}
+)
 
 export default SearchInput

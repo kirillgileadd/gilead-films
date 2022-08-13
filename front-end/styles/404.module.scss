@@ -1,0 +1,15 @@
+.main {
+	@apply relative min-h-screen flex justify-center items-center;
+}
+
+.background {
+	@apply object-center object-cover pointer-events-none;
+}
+
+.content {
+	@apply bg-gray-800 z-2 p-layout rounded-2xl flex items-center flex-col;
+
+	> h3 {
+		@apply text-6xl font-bold mb-8;
+	}
+}

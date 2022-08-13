@@ -11,12 +11,12 @@ export const menuData: IMenu = {
 		{
 			title: 'Discovery',
 			icon: 'MdOutlineHomeWork',
-			href: '/test',
+			href: '/discovery',
 		},
 		{
 			title: 'Popular',
 			icon: 'MdOutlineHomeWork',
-			href: '/test2',
+			href: '/popular',
 		},
 	],
 }

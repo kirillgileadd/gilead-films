@@ -5,11 +5,11 @@
 			@apply w-6 h-6;
 		}
 	}
+}
 
-	> svg {
-		@apply ml-auto w-9 h-9 basis-1/12;
-		> path {
-			@apply border border-primary;
-		}
+.icons__menu {
+	@apply ml-auto flex;
+	> a > svg {
+		@apply w-7 h-7 mx-2;
 	}
 }

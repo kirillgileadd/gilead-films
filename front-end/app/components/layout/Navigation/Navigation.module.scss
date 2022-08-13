@@ -1,6 +1,6 @@
 .navigation {
 	@apply py-layout;
-	> a {
+	> div > a {
 		@apply mb-10;
 	}
 }

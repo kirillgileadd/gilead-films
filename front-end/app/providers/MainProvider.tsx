@@ -1,7 +1,13 @@
 import React, { FC, ReactNode } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Provider } from 'react-redux'
 
-import Layout from '@/components/layout/Layout'
+import ReduxToast from '@/ui/redux-toast/ReduxToast'
+
+import { store } from '@/store/store'
+
+import HeadProvider from './HeadProvider/HeadProvider'
+
 
 declare module 'react-query/types/react/QueryClientProvider' {
 	interface QueryClientProviderProps {
@@ -19,9 +25,14 @@ const queryClient = new QueryClient({
 
 const MainProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	return (
-		<QueryClientProvider client={queryClient}>
-			<Layout>{children}</Layout>
-		</QueryClientProvider>
+		<HeadProvider>
+			<Provider store={store}>
+				<QueryClientProvider client={queryClient}>
+					{children}
+				</QueryClientProvider>
+				<ReduxToast />
+			</Provider>
+		</HeadProvider>
 	)
 }
 

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
 
 import { IMovie } from '@/shared/types/movie.types'
@@ -16,16 +17,20 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 					<ul className={styles.list}>
 						{movies.map((movie) => (
 							<li key={movie._id}>
-								<Image
-									src={movie.poster || ''}
-									width={120}
-									height={150}
-									objectFit="cover"
-									objectPosition="top"
-									alt={movie.title}
-									draggable={false}
-								/>
-								<h6>{movie.title}</h6>
+								<Link href={`/movie/${movie.slug}`}>
+									<a>
+										<Image
+											src={movie.poster || ''}
+											width={180}
+											height={220}
+											objectFit="cover"
+											objectPosition="top"
+											alt={movie.title}
+											draggable={false}
+										/>
+										<h6>{movie.title}</h6>
+									</a>
+								</Link>
 							</li>
 						))}
 					</ul>

@@ -1,8 +1,5 @@
 .search__block {
 	@apply transition-all relative;
-	&:focus-within {
-		@apply grow;
-	}
 }
 
 .list__box {
@@ -29,11 +26,17 @@
 }
 
 .list {
+	@apply flex gap-4 flex-wrap;
 	> li {
+		@apply border-2 p-2 rounded-xl border-gray-600 transition hover:border-primary;
 		cursor: pointer;
 	}
 
-	> li > span {
+	> li > a > span {
 		@apply rounded-xl;
 	}
+}
+
+.grow {
+	flex-grow: 1;
 }
