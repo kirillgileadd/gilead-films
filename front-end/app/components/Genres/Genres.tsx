@@ -12,7 +12,7 @@ const Genres: FC = () => {
 	const { data, isLoading } = useGenre()
 
 	const genresItem =
-		data && data.map((genre) => <GenresItem key={genre.id} {...genre} />)
+		data && data.map((genre) => <GenresItem key={genre._id} {...genre} />)
 
 	return (
 		<div>

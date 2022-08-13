@@ -7,13 +7,16 @@ import styles from './SearchInput.module.scss'
 interface SearchInputProps {
 	value: string
 	onChange: React.ChangeEventHandler<HTMLInputElement>
+	ref?: any
+	onBlur: () => void
 }
 
-const SearchInput: FC<SearchInputProps> = ({ value, onChange }) => {
+const SearchInput: FC<SearchInputProps> = ({ value, onChange, onBlur }) => {
 	return (
 		<div className={styles.input}>
 			<MaterialIcon icon="MdSearch" />
 			<input
+				onBlur={onBlur}
 				className={styles.input__value}
 				placeholder="Search"
 				value={value}

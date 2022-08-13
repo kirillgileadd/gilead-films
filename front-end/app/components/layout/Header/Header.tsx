@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
+import Search from '@/components/layout/Header/Search/Search'
+
 import NavigationButtons from '@/ui/Button/NavigationButtons'
-import SearchInput from '@/ui/Input/SearchInput'
 import MaterialIcon from '@/ui/MaterialIcon'
 
 import styles from './Header.module.scss'
@@ -12,13 +13,9 @@ const Header = () => {
 	return (
 		<div className={styles.header}>
 			<NavigationButtons />
-			<SearchInput
-				value={inputValue}
-				onChange={(e) => setInputValue(e.target.value)}
-			/>
+			<Search />
 
 			<MaterialIcon icon={'MdSupervisedUserCircle'} />
-
 		</div>
 	)
 }

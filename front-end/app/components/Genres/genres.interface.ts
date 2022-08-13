@@ -6,11 +6,12 @@ export interface IGenre {
 }
 
 export interface IGenreItem {
-	id: string
-	title: string
+	_id: string
+	name: string
 	icon: TypeMaterialIcons
-	link: string
+	slug: string
 	description: string
+	createdAt: string
 }
 
 export interface IFetchGenreItem {

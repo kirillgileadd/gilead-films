@@ -8,14 +8,14 @@ import MaterialIcon from '@/ui/MaterialIcon'
 import styles from './Genres.module.scss'
 
 
-const GenresItem: FC<IGenreItem> = ({ title, icon, description, link }) => {
+const GenresItem: FC<IGenreItem> = ({ name, icon, description, slug }) => {
 	return (
 		<li className={styles.genre__item}>
-			<Link href={link}>
+			<Link href={slug}>
 				<a>
 					<MaterialIcon icon={icon} />
-					<h6>{title}</h6>
-					{/*<p>{description}</p>*/}
+					<h6>{name}</h6>
+					<p>{description}</p>
 				</a>
 			</Link>
 		</li>

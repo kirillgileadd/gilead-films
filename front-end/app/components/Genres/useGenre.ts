@@ -13,11 +13,8 @@ export const useGenre = () => {
 			data.map(
 				(genre) =>
 					({
-						id: genre._id,
-						title: genre.name,
-						description: genre.description,
-						icon: genre.icon,
-						link: getGenreUrl(genre.slug),
+						...genre,
+						slug: getGenreUrl(genre.slug),
 					} as IGenreItem)
 			),
 	})
