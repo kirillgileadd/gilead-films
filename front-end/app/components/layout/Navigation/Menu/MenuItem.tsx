@@ -12,7 +12,6 @@ import styles from './Menu.module.scss'
 
 const MenuItem: FC<IMenuItem> = ({ icon, title, href }) => {
 	const router = useRouter()
-	console.log(href === router.asPath)
 	return (
 		<li
 			className={cl({

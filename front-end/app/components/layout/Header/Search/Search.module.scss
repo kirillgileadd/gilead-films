@@ -3,7 +3,7 @@
 }
 
 .list__box {
-	@apply absolute w-full rounded-3xl z-2 p-layout overflow-hidden animate-fade bg-gray-800;
+	@apply absolute w-full rounded-3xl z-2 p-layout overflow-hidden animate-fade bg-opacity-50 backdrop-blur backdrop-filter;
 	box-shadow: 0 0 1rem 0 rgba(41, 39, 39, 0.2);
 
 	> h3 {
@@ -28,7 +28,7 @@
 .list {
 	@apply flex gap-4 flex-wrap;
 	> li {
-		@apply border-2 p-2 rounded-xl border-gray-600 transition hover:border-primary;
+		@apply border-2 p-2 rounded-xl border-transparent transition bg-gray-900 hover:border-primary;
 		cursor: pointer;
 	}
 

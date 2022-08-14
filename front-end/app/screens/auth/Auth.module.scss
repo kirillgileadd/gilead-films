@@ -1,0 +1,13 @@
+.auth__box {
+	@apply m-auto w-96 p-6 bg-gray-650 rounded-3xl overflow-hidden animate-fade bg-opacity-50 backdrop-blur backdrop-filter;
+	> h3 {
+		@apply text-center mb-6;
+	}
+}
+
+.toggle__auth {
+	@apply flex justify-between gap-2;
+	> p > span {
+		@apply text-primary underline cursor-pointer;
+	}
+}

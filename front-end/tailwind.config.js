@@ -27,6 +27,9 @@ module.exports = {
 			yellow: {
 				700: '#F5C521',
 			},
+			red: {
+				500: '#FF0000',
+			},
 		},
 
 		extend: {
@@ -78,6 +81,7 @@ module.exports = {
 		},
 	},
 	plugins: [
+		require('@tailwindcss/forms'),
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {

@@ -1,0 +1,17 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+
+import { useAuth } from '@/hooks/useAuth'
+
+
+export const useAuthRedirect = () => {
+	const { user, isLoading } = useAuth()
+
+	const { query, push } = useRouter()
+
+	const redirect = String(query.redirect) || '/'
+
+	useEffect(() => {
+		if (user) push(redirect)
+	}, [user, push, redirect])
+}

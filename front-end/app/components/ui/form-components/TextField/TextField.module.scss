@@ -1,0 +1,26 @@
+.text_field__box {
+	@apply relative flex flex-col pb-8;
+	> input {
+		@apply bg-transparent rounded-xl border p-4;
+		&:focus {
+			@apply border-primary shadow-primary ring-primary;
+		}
+	}
+
+	> label {
+		@apply text-gray-500 font-bold uppercase mb-2 text-sm;
+	}
+
+	> p {
+		@apply absolute bottom-2 text-sm text-red-500;
+	}
+
+	&.error {
+		> input {
+			@apply border-red-500;
+			&:focus {
+				@apply border-red-500 shadow-red-500 ring-red-500;
+			}
+		}
+	}
+}

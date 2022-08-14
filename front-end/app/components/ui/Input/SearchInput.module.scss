@@ -6,13 +6,17 @@
 	}
 
 	> input {
-		@apply bg-transparent outline-0 w-full;
+		@apply bg-transparent outline-0 w-full shadow-none outline-none border-none p-0;
+		&:focus {
+			@apply shadow-none outline-none border-none ring-0;
+		}
+
 		&::placeholder {
 			@apply text-gray-600;
 		}
 	}
 
 	&:focus-within {
-		@apply grow;
+		@apply grow border-primary;
 	}
 }
