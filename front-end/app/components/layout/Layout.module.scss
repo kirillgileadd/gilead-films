@@ -4,7 +4,7 @@ $navigationSize: 20%;
 	@apply relative;
 
 	> div:first-child {
-		@apply fixed top-0 bottom-0 overflow-y-auto border-r border-gray-700;
+		@apply fixed top-0 bottom-0 overflow-y-auto border-r-2 border-gray-200;
 		width: $navigationSize;
 		max-width: 350px;
 		background: var(--dark);

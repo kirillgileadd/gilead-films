@@ -4,11 +4,11 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import Button from '@/ui/form-components/Button/Button'
 import TextField from '@/ui/form-components/TextField/TextField'
 
+import { useActions } from '@/hooks/useActions'
+
 import { validEmail } from '@/shared/regex'
 
 import { Meta } from '@/utils/meta/Meta'
-
-import { useRegisterMutation } from '@/store/auth/auth.api'
 
 import styles from './Auth.module.scss'
 import { IAuthFieds } from './auth.interface'
@@ -19,8 +19,7 @@ const Auth: FC = () => {
 	useAuthRedirect()
 
 	const [formType, setFormType] = useState<'login' | 'register'>('login')
-	// const { register } = useActions()
-	const [register] = useRegisterMutation()
+	const { register } = useActions()
 	const isPasswordRequired = true
 
 	const {

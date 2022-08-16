@@ -14,14 +14,12 @@ module.exports = {
 			black: colors.black,
 			white: colors.white,
 			gray: {
+				100: '#F9FAFF',
+				200: '#EEEEF9',
 				300: '#d9dae8',
-				500: '#999AA5',
-				600: '#66676E',
-				650: '#2F2F33',
-				700: '#26272C',
-				800: '#242529',
-				900: '#191B1F',
-				950: '#101215',
+				500: '#A2ABBA',
+				600: '#829BB1',
+				800: '#3E4B54',
 			},
 			transparent: colors.transparent,
 			yellow: {
@@ -113,7 +111,7 @@ module.exports = {
 					boxShadow: theme('boxShadow.lg'),
 				},
 				'.text-title': {
-					color: theme('colors.white'),
+					color: theme('colors.gray.800'),
 					fontSize: '1.5rem',
 					fontWeight: 500,
 				},

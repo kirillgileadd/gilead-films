@@ -1,8 +1,8 @@
 .input {
-	@apply relative basis-1/2 items-center flex rounded-3xl border-2 border-gray-600 py-1.5 px-4;
+	@apply relative basis-1/2 items-center flex rounded-3xl border-2 border-gray-500 py-1.5 px-4;
 
 	> svg {
-		@apply h-6 w-6 fill-gray-600 mr-2;
+		@apply h-6 w-6 fill-gray-500 mr-2;
 	}
 
 	> input {
@@ -12,7 +12,7 @@
 		}
 
 		&::placeholder {
-			@apply text-gray-600;
+			@apply text-gray-500;
 		}
 	}
 
