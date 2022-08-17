@@ -7,9 +7,9 @@
 }
 
 .content {
-	@apply bg-gray-800 z-2 p-layout rounded-2xl flex items-center flex-col;
+	@apply bg-white z-2 p-layout rounded-2xl flex items-center flex-col;
 
 	> h3 {
-		@apply text-6xl font-bold mb-8;
+		@apply text-5xl font-bold mb-8;
 	}
 }

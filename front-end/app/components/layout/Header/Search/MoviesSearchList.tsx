@@ -7,11 +7,10 @@ import { IMovie } from '@/shared/types/movie.types'
 import styles from './Search.module.scss'
 
 
-const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
-	console.log(movies)
+const MoviesSearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 	return (
-		<div className={styles.list__box}>
-			{movies.length ? (
+		<div className={styles.search__list_item}>
+			{movies.length > 0 && (
 				<>
 					<h3 className="text-title">Movies</h3>
 					<ul className={styles.list}>
@@ -35,11 +34,9 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 						))}
 					</ul>
 				</>
-			) : (
-				<p>Movies not found</p>
 			)}
 		</div>
 	)
 }
 
-export default SearchList
+export default MoviesSearchList

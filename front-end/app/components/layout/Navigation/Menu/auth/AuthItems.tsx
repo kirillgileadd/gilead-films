@@ -1,12 +1,24 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
-import AuthItem from '@/components/layout/Navigation/Menu/auth/AuthItem'
+import MenuItem from '@/components/layout/Navigation/Menu/MenuItem'
+import LogoutButton from '@/components/layout/Navigation/Menu/auth/LogoutButton'
+
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 
 
 const AuthItems: FC = () => {
+	const { user } = useTypedSelector((state) => state.user)
+
 	return (
 		<ul>
-			<AuthItem />
+			{user ? (
+				<>
+					<MenuItem icon={'MdSettings'} title={'Profile'} href={'/profile'} />
+					<LogoutButton />
+				</>
+			) : (
+				<MenuItem icon={'MdLogin'} title={'Login'} href={'/auth'} />
+			)}
 		</ul>
 	)
 }

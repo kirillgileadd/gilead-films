@@ -6,7 +6,7 @@ import { IAuthResponse } from '@/store/user/user.interface'
 
 
 export const getLocalData = (value: string) => {
-	if (typeof localStorage !== 'undefined') {
+	if (typeof localStorage !== 'undefined' && IS_CLIENT) {
 		const ls = localStorage.getItem(value)
 		return ls ? JSON.parse(ls) : null
 	}

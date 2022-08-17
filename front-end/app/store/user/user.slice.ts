@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { getLocalData } from '@/utils/stotages/local-storage'
 
-import { login, register } from '@/store/user/user.actions'
+import { checkAuth, login, logout, register } from '@/store/user/user.actions'
 import { IAuthResponse, IInitialState } from '@/store/user/user.interface'
 
 
@@ -16,34 +16,43 @@ export const userSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(register.pending, (state, action) => {
-			state.isLoading = true
-		})
-		builder.addCase(
-			register.fulfilled,
-			(state, action: PayloadAction<IAuthResponse>) => {
-				state.user = action.payload.user
+		builder
+			.addCase(register.pending, (state, action) => {
+				state.isLoading = true
+			})
+			.addCase(
+				register.fulfilled,
+				(state, action: PayloadAction<IAuthResponse>) => {
+					state.user = action.payload.user
+					state.isLoading = false
+				}
+			)
+			.addCase(register.rejected, (state, action) => {
 				state.isLoading = false
-			}
-		)
-		builder.addCase(register.rejected, (state, action) => {
-			state.isLoading = false
-			state.user = null
-		})
-		builder.addCase(login.pending, (state, action) => {
-			state.isLoading = true
-		})
-		builder.addCase(
-			login.fulfilled,
-			(state, action: PayloadAction<IAuthResponse>) => {
-				state.user = action.payload.user
+				state.user = null
+			})
+			.addCase(login.pending, (state, action) => {
+				state.isLoading = true
+			})
+			.addCase(
+				login.fulfilled,
+				(state, action: PayloadAction<IAuthResponse>) => {
+					state.user = action.payload.user
+					state.isLoading = false
+				}
+			)
+
+			.addCase(login.rejected, (state, action) => {
 				state.isLoading = false
-			}
-		)
-		builder.addCase(login.rejected, (state, action) => {
-			state.isLoading = false
-			state.user = null
-		})
+				state.user = null
+			})
+			.addCase(logout.fulfilled, (state) => {
+				state.isLoading = false
+				state.user = null
+			})
+			.addCase(checkAuth.fulfilled, (state, { payload }) => {
+				state.user = payload.user
+			})
 	},
 })
 

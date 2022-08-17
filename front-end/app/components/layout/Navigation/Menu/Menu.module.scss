@@ -9,6 +9,7 @@
 			> li {
 				@apply pl-layout my-6 relative after:content-[''] after:ml-0.5 after:absolute after:-left-0.5 after:top-0 after:h-full after:w-1 after:rounded-md;
 				> a {
+					@apply flex items-center;
 					> p {
 						@apply text-gray-500 ml-3;
 					}

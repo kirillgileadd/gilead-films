@@ -7,7 +7,7 @@ const ReduxToast = () => {
 			timeOut={4000}
 			newestOnTop={false}
 			preventDuplicates
-			position="top-left"
+			position="top-right"
 			transitionIn="fadeIn"
 			transitionOut="fadeOut"
 			progressBar

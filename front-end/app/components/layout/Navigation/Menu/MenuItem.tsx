@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 
 import { IMenuItem } from '@/components/layout/Navigation/Menu/menu.interface'
 
-import MaterialIcon from '@/ui/MaterialIcon'
+import { NoSSRMaterialIcon } from '@/ui/NoSSRMaterialIcon'
 
 import styles from './Menu.module.scss'
 
@@ -20,7 +20,7 @@ const MenuItem: FC<IMenuItem> = ({ icon, title, href }) => {
 		>
 			<Link href={href}>
 				<a className="flex items-center">
-					<MaterialIcon icon={icon} />
+					<NoSSRMaterialIcon icon={icon} />
 					<p>{title}</p>
 				</a>
 			</Link>

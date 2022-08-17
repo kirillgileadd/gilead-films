@@ -7,6 +7,8 @@ import { toastError } from '@/utils/api/toastr.error'
 
 import { InterfaceEmailPassword } from '@/store/user/user.interface'
 
+import { errorCatch } from '../../api/api.helpers'
+
 
 export const register = createAsyncThunk(
 	'auth/register',
@@ -26,7 +28,7 @@ export const login = createAsyncThunk(
 	'auth/login',
 	async (userData: InterfaceEmailPassword, thunkApi) => {
 		try {
-			const response = await AuthService.register(userData)
+			const response = await AuthService.login(userData)
 			toastr.success('Login', 'Completed successfully')
 			return response.data
 		} catch (e) {
@@ -40,4 +42,21 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 	await AuthService.logout()
 })
 
-//checkauth
+export const checkAuth = createAsyncThunk(
+	'auth/checkAuth',
+	async (_, thunkApi) => {
+		try {
+			const response = await AuthService.getNewTokens()
+			return response.data
+		} catch (e) {
+			if (errorCatch(e) === 'jwt expired') {
+				toastr.error(
+					'Logout',
+					'Your authorizaiton is finished, plz sign in again'
+				)
+				thunkApi.dispatch(logout())
+			}
+			return thunkApi.rejectWithValue(e)
+		}
+	}
+)

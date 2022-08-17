@@ -5,13 +5,13 @@ import { useAuth } from '@/hooks/useAuth'
 
 
 export const useAuthRedirect = () => {
-	const { user, isLoading } = useAuth()
+	const { user } = useAuth()
 
-	const { query, push } = useRouter()
+	const { query, push, replace } = useRouter()
 
-	const redirect = String(query.redirect) || '/'
+	const redirect = query.redirect ? String(query.redirect) : '/'
 
 	useEffect(() => {
-		if (user) push(redirect)
-	}, [user, push, redirect])
+		if (user) replace(redirect)
+	}, [user, redirect, push])
 }

@@ -18,9 +18,9 @@ const Error404 = () => {
 				<Image className={styles.background} src={background} layout="fill" />
 				<div className={styles.content}>
 					<div className="absolute left-layout top-layout">
-						<Logo />
+						<Logo color={'white'} />
 					</div>
-					<h3 className="text-title ">404 Page Not Found</h3>
+					<h3 className="text-title">404 Page Not Found</h3>
 					<Link href="/">
 						<a className="btn-primary">Back to Home</a>
 					</Link>

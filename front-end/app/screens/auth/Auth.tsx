@@ -10,6 +10,8 @@ import { validEmail } from '@/shared/regex'
 
 import { Meta } from '@/utils/meta/Meta'
 
+import { login } from '@/store/user/user.actions'
+
 import styles from './Auth.module.scss'
 import { IAuthFieds } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
@@ -19,7 +21,7 @@ const Auth: FC = () => {
 	useAuthRedirect()
 
 	const [formType, setFormType] = useState<'login' | 'register'>('login')
-	const { register } = useActions()
+	const { register, login } = useActions()
 	const isPasswordRequired = true
 
 	const {
@@ -33,7 +35,8 @@ const Auth: FC = () => {
 
 	const onSubmit: SubmitHandler<IAuthFieds> = (data) => {
 		console.log(data)
-		register(data)
+		if (formType === 'login') login(data)
+		else if (formType === 'register') register(data)
 	}
 
 	return (

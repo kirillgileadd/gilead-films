@@ -1,7 +1,7 @@
 .text_field__box {
 	@apply relative flex flex-col pb-8;
 	> input {
-		@apply bg-transparent rounded-xl border p-4;
+		@apply bg-white rounded-xl border p-4;
 		&:focus {
 			@apply border-primary shadow-primary ring-primary;
 		}
