@@ -4,6 +4,7 @@ import {
 	authMenu,
 	menuData,
 } from '@/components/layout/Navigation/Menu/menu.data'
+import RandomMovie from '@/components/layout/Navigation/RandomMovie/RandomMovie'
 
 import styles from './Navigation.module.scss'
 
@@ -16,6 +17,7 @@ const Navigation = () => {
 			</div>
 			<Menu menu={menuData} />
 			<Menu menu={authMenu} />
+			<RandomMovie />
 		</div>
 	)
 }

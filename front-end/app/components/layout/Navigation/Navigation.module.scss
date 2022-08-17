@@ -1,6 +1,28 @@
 .navigation {
-	@apply py-layout;
+	@apply py-layout flex flex-col;
 	> div > a {
-		@apply mb-10;
+		@apply mb-8;
+	}
+
+	.random__movie {
+		@apply relative flex text-center flex-col justify-center items-center mx-layout mt-auto bg-gray-200 p-4 pt-6 rounded-3xl;
+		> div {
+			@apply bg-gray-600 p-2 rounded-xl absolute left-1/2 -top-6 -translate-x-1/2;
+			> svg {
+				@apply text-white w-8 h-8;
+			}
+		}
+
+		> h6 {
+			@apply text-gray-800;
+		}
+
+		> p {
+			@apply mb-4;
+		}
+
+		> button {
+			@apply bg-gray-600;
+		}
 	}
 }

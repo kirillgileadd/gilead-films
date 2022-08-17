@@ -51,6 +51,11 @@ export class MovieController {
 		return this.movieService.getMostPopular()
 	}
 
+	@Get('/random')
+	async getRandomMovie() {
+		return this.movieService.randomMovie()
+	}
+
 	@Post('/update-count-opened')
 	@HttpCode(200)
 	async updateCountOpened(@Body('slug') slug: string) {

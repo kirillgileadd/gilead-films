@@ -10,7 +10,7 @@ import SearchInput from '@/ui/Input/SearchInput'
 import { useDebounce } from '@/hooks/useDebounce'
 
 import { GenreService } from '@/services/GenreSevice'
-import { MovieService } from '@/services/MovieService'
+import MovieService from '@/services/MovieService'
 
 import styles from './Search.module.scss'
 

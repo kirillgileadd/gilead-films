@@ -5,12 +5,16 @@ import { getMoviesUrl } from '@/configs/api.config'
 import { axiosClassic } from '../api/api.interceptors'
 
 
-export const MovieService = {
-	async getAllMovies(searchTerm?: string) {
+export default class MovieService {
+	static async getAllMovies(searchTerm?: string) {
 		return axiosClassic.get<IMovie[]>(getMoviesUrl(''), {
 			params: {
 				...(searchTerm ? { searchTerm: searchTerm } : {}),
 			},
 		})
-	},
+	}
+
+	static async getRandomMovie() {
+		return axiosClassic.get<IMovie>(getMoviesUrl('/random'))
+	}
 }

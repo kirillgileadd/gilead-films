@@ -41,6 +41,16 @@ export class MovieService {
 		return this.movieModel.find({ actors: actorId }).exec()
 	}
 
+	async randomMovie() {
+		const getMoviesCount = async () => {
+			return this.movieModel.count().exec()
+		}
+		const count = await getMoviesCount()
+		const random = Math.floor(Math.random() * count)
+
+		return this.movieModel.findOne().skip(random).exec()
+	}
+
 	async byGenres(
 		genreIds: Types.ObjectId[]
 	): Promise<DocumentType<MovieModel>[]> {
