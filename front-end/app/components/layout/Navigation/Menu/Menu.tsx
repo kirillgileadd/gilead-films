@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo, useMemo } from 'react'
 
 import MenuItem from '@/components/layout/Navigation/Menu/MenuItem'
 import { NoSSRAuthItems } from '@/components/layout/Navigation/Menu/auth/NoSSRAuthItems'
@@ -8,19 +8,20 @@ import styles from './Menu.module.scss'
 
 
 const Menu: FC<{ menu: IMenu }> = ({ menu }) => {
-	const menuItems = menu.items.map((item) => (
-		<MenuItem key={item.href} {...item} />
-	))
+	const menuItems = useMemo(
+		() => menu.items.map((item) => <MenuItem key={item.href} {...item} />),
+		[]
+	)
 
 	return (
 		<div className={styles.menu}>
 			<h6 className="pl-layout">{menu.title}</h6>
 			<div className={styles.lists}>
 				<ul>{menuItems}</ul>
-				{menu.title === 'General' && <NoSSRAuthItems />}
+				{menu.title === 'Общее' && <NoSSRAuthItems />}
 			</div>
 		</div>
 	)
 }
 
-export default Menu
+export default memo(Menu)

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { IMovie } from '@/shared/types/movie.types'
+import { IMovie } from '../../../../types/movie.types'
 
 import styles from './Search.module.scss'
 
@@ -12,7 +12,7 @@ const MoviesSearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 		<div className={styles.search__list_item}>
 			{movies.length > 0 && (
 				<>
-					<h3 className="text-title">Movies</h3>
+					<h3 className="text-title">Фильмы</h3>
 					<ul className={styles.list}>
 						{movies.map((movie) => (
 							<li key={movie._id}>

@@ -10,7 +10,7 @@ const GenreSearchList: FC<{ genres: IGenreItem[] }> = ({ genres }) => {
 		<div className={styles.search__list_item}>
 			{genres.length > 0 && (
 				<>
-					<h3 className="text-title">Genres</h3>
+					<h3 className="text-title">Жанры</h3>
 					<ul className={styles.list}>
 						{genres.map((genre) => (
 							<li key={genre._id}>

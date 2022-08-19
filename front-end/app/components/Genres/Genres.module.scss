@@ -1,5 +1,9 @@
 .genre__list {
 	@apply flex flex-row gap-x-6 items-start;
+	> li {
+		@apply relative basis-1/4;
+	}
+
 	.genre__item {
 		@apply basis-1/4 bg-gray-200 p-4 rounded-2xl transition-transform;
 
@@ -16,17 +20,17 @@
 		}
 
 		> a > p {
-			@apply h-0 opacity-0 text-gray-600 text-center;
+			@apply hidden opacity-0 text-gray-600 text-center;
 		}
 
 		&:hover {
-			@apply bg-white shadow-2xl scale-110;
+			@apply bg-white shadow-2xl absolute scale-105 w-full;
 			> a > svg {
 				@apply fill-primary;
 			}
 
 			> a > p {
-				@apply transition-all h-fit mt-4 opacity-100;
+				@apply block transition-all opacity-100;
 			}
 		}
 	}

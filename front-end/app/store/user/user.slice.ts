@@ -3,7 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { getLocalData } from '@/utils/stotages/local-storage'
 
 import { checkAuth, login, logout, register } from '@/store/user/user.actions'
-import { IAuthResponse, IInitialState } from '@/store/user/user.interface'
+import { IInitialState, IUserState } from '@/store/user/user.interface'
 
 
 export const initialState: IInitialState = {
@@ -22,8 +22,8 @@ export const userSlice = createSlice({
 			})
 			.addCase(
 				register.fulfilled,
-				(state, action: PayloadAction<IAuthResponse>) => {
-					state.user = action.payload.user
+				(state, action: PayloadAction<IUserState>) => {
+					state.user = action.payload
 					state.isLoading = false
 				}
 			)
@@ -34,13 +34,10 @@ export const userSlice = createSlice({
 			.addCase(login.pending, (state, action) => {
 				state.isLoading = true
 			})
-			.addCase(
-				login.fulfilled,
-				(state, action: PayloadAction<IAuthResponse>) => {
-					state.user = action.payload.user
-					state.isLoading = false
-				}
-			)
+			.addCase(login.fulfilled, (state, action: PayloadAction<IUserState>) => {
+				state.user = action.payload
+				state.isLoading = false
+			})
 
 			.addCase(login.rejected, (state, action) => {
 				state.isLoading = false

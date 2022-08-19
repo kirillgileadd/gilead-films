@@ -1,7 +1,7 @@
 import cl from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 
 import { IMenuItem } from '@/components/layout/Navigation/Menu/menu.interface'
 
@@ -28,4 +28,4 @@ const MenuItem: FC<IMenuItem> = ({ icon, title, href }) => {
 	)
 }
 
-export default MenuItem
+export default memo(MenuItem)

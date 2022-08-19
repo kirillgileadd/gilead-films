@@ -1,13 +1,13 @@
-import { IMovie } from '@/shared/types/movie.types'
+import { IMovie } from '@/shared/../types/movie.types'
+
+import { $api } from '@/utils/api/api.interceptors'
 
 import { getMoviesUrl } from '@/configs/api.config'
-
-import { axiosClassic } from '../api/api.interceptors'
 
 
 export default class MovieService {
 	static async getAllMovies(searchTerm?: string) {
-		return axiosClassic.get<IMovie[]>(getMoviesUrl(''), {
+		return await $api.get<IMovie[]>(getMoviesUrl(''), {
 			params: {
 				...(searchTerm ? { searchTerm: searchTerm } : {}),
 			},
@@ -15,6 +15,6 @@ export default class MovieService {
 	}
 
 	static async getRandomMovie() {
-		return axiosClassic.get<IMovie>(getMoviesUrl('/random'))
+		return await $api.get<IMovie>(getMoviesUrl('/random'))
 	}
 }

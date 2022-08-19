@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import Logo from '@/components/layout/Navigation/Logo'
 import Menu from '@/components/layout/Navigation/Menu/Menu'
 import {
@@ -22,4 +24,4 @@ const Navigation = () => {
 	)
 }
 
-export default Navigation
+export default memo(Navigation)

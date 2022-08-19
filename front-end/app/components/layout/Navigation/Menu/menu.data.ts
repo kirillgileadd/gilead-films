@@ -1,27 +1,27 @@
 import { IMenu } from '@/components/layout/Navigation/Menu/menu.interface'
 
 export const menuData: IMenu = {
-	title: 'Menu',
+	title: 'Меню',
 	items: [
 		{
-			title: 'Home',
-			icon: 'MdOutlineHomeWork',
+			title: 'Главная',
+			icon: 'MdHomeWork',
 			href: '/',
 		},
 		{
-			title: 'Discovery',
-			icon: 'MdOutlineHomeWork',
-			href: '/discovery',
+			title: 'Популярное',
+			icon: 'MdPoll',
+			href: '/popular',
 		},
 		{
-			title: 'Popular',
-			icon: 'MdOutlineHomeWork',
-			href: '/popular',
+			title: 'В разработке',
+			icon: 'MdWatchLater',
+			href: '/commig-soon',
 		},
 	],
 }
 
 export const authMenu: IMenu = {
-	title: 'General',
+	title: 'Общее',
 	items: [],
 }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo, useMemo } from 'react'
 
 import GenresItem from '@/components/Genres/GenresItem'
 import { useGenre } from '@/components/Genres/useGenre'
@@ -9,10 +9,13 @@ import styles from './Genres.module.scss'
 
 
 const Genres: FC = () => {
-	const { data, isLoading } = useGenre()
+	const { data, isLoading, isFetched } = useGenre()
 
-	const genresItem =
-		data && data.map((genre) => <GenresItem key={genre._id} {...genre} />)
+	const genresItem = useMemo(
+		() =>
+			data && data.map((genre) => <GenresItem key={genre._id} {...genre} />),
+		[isFetched]
+	)
 
 	return (
 		<div>
@@ -28,7 +31,7 @@ const Genres: FC = () => {
 				</div>
 			) : (
 				<>
-					<h3 className="text-title mb-6">Genres</h3>
+					<h3 className="text-title mb-6">Жанры</h3>
 					<ul className={styles.genre__list}>{genresItem}</ul>
 				</>
 			)}
@@ -36,4 +39,4 @@ const Genres: FC = () => {
 	)
 }
 
-export default Genres
+export default memo(Genres)

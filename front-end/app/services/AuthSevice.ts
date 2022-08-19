@@ -1,6 +1,8 @@
 import { AxiosResponse } from 'axios'
 import Cookies from 'js-cookie'
 
+import { getContentType } from '@/utils/api/api.helpers'
+import { $api } from '@/utils/api/api.interceptors'
 import { removeTokens } from '@/utils/stotages/cookies'
 import { saveToLocalStorage } from '@/utils/stotages/local-storage'
 
@@ -11,15 +13,12 @@ import {
 	InterfaceEmailPassword,
 } from '@/store/user/user.interface'
 
-import { getContentType } from '../api/api.helpers'
-import { axiosClassic } from '../api/api.interceptors'
-
 
 export default class AuthService {
 	static async register(
 		userData: InterfaceEmailPassword
 	): Promise<AxiosResponse<IAuthResponse>> {
-		const response = await axiosClassic.post<IAuthResponse>(
+		const response = await $api.post<IAuthResponse>(
 			getAuthUrl('/register'),
 			userData
 		)
@@ -34,7 +33,7 @@ export default class AuthService {
 	static async login(
 		userData: InterfaceEmailPassword
 	): Promise<AxiosResponse<IAuthResponse>> {
-		const response = await axiosClassic.post<IAuthResponse>(
+		const response = await $api.post<IAuthResponse>(
 			getAuthUrl('/login'),
 			userData
 		)
@@ -53,7 +52,7 @@ export default class AuthService {
 
 	static async getNewTokens() {
 		const refreshToken = Cookies.get('refreshToken')
-		const response = await axiosClassic.post<IAuthResponse>(
+		const response = await $api.post<IAuthResponse>(
 			getAuthUrl('/login/access-token'),
 			{ refreshToken },
 			{ headers: getContentType() }

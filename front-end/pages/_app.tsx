@@ -1,11 +1,15 @@
 import type { AppProps } from 'next/app'
 
 import MainProvider from '../app/providers/MainProvider'
+import { TypeComponentAuthFields } from '../app/types/auth.types'
 import '../styles/globals.scss'
 
-function MyApp({ Component, pageProps }: AppProps) {
+
+type TypeAppProps = AppProps & TypeComponentAuthFields
+
+function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
-		<MainProvider>
+		<MainProvider Component={Component}>
 			<Component {...pageProps} />
 		</MainProvider>
 	)

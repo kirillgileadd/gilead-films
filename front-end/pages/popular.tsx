@@ -3,12 +3,12 @@ import React from 'react'
 import Layout from '@/components/layout/Layout'
 
 
-const Discovery = () => {
+const Popular = () => {
 	return (
 		<Layout>
-			<div className="text-title">Discovery</div>
+			<div className="text-title">Поплярное</div>
 		</Layout>
 	)
 }
 
-export default Discovery
+export default Popular

@@ -6,6 +6,9 @@ import ReduxToast from '@/ui/redux-toast/ReduxToast'
 
 import { store } from '@/store/store'
 
+import { TypeComponentAuthFields } from '../types/auth.types'
+
+import AuthProvider from './AuthProvider/AuthProvider'
 import HeadProvider from './HeadProvider/HeadProvider'
 
 
@@ -23,14 +26,14 @@ const queryClient = new QueryClient({
 	},
 })
 
-const MainProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
 	return (
 		<HeadProvider>
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
-					{children}
+					<AuthProvider Component={Component}>{children}</AuthProvider>
+					<ReduxToast />
 				</QueryClientProvider>
-				<ReduxToast />
 			</Provider>
 		</HeadProvider>
 	)

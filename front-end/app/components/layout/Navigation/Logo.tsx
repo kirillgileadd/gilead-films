@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import logoWhite from '@/assets/img/logo-white.svg'
 import logo from '@/assets/img/logo.svg'
@@ -21,4 +21,4 @@ const Logo: FC<{ color?: 'white' | 'black' }> = ({ color }) => {
 	)
 }
 
-export default Logo
+export default memo(Logo)

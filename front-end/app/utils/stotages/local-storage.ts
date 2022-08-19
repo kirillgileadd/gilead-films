@@ -20,6 +20,6 @@ export const saveToLocalStorage = (value: IAuthResponse, name: string) => {
 			refreshToken: value!.refreshToken!,
 		}
 		setTokens(tokens)
-		localStorage.setItem(name, JSON.stringify(value))
+		localStorage.setItem(name, JSON.stringify(value.user))
 	}
 }

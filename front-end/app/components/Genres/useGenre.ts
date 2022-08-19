@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 
 import { GenreService } from '@/services/GenreSevice'
 
-import { getGenreUrl } from '@/configs/url.config'
+import { getGenresUrl } from '@/configs/api.config'
 
 import { IGenreItem } from './genres.interface'
 
@@ -14,7 +14,7 @@ export const useGenre = () => {
 				(genre) =>
 					({
 						...genre,
-						slug: getGenreUrl(genre.slug),
+						slug: getGenresUrl(genre.slug),
 					} as IGenreItem)
 			),
 	})

@@ -6,9 +6,8 @@ import TextField from '@/ui/form-components/TextField/TextField'
 
 import { useActions } from '@/hooks/useActions'
 
-import { validEmail } from '@/shared/regex'
-
 import { Meta } from '@/utils/meta/Meta'
+import { validEmail } from '@/utils/regex/regex'
 
 import { login } from '@/store/user/user.actions'
 
@@ -34,7 +33,6 @@ const Auth: FC = () => {
 	})
 
 	const onSubmit: SubmitHandler<IAuthFieds> = (data) => {
-		console.log(data)
 		if (formType === 'login') login(data)
 		else if (formType === 'register') register(data)
 	}
@@ -42,16 +40,18 @@ const Auth: FC = () => {
 	return (
 		<Meta title="Auth">
 			<section className={styles.auth__box}>
-				<h3 className="text-title">Auth</h3>
+				<h3 className="text-title">
+					{formType === 'login' ? 'Авторизация' : 'Регистрация'}
+				</h3>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Controller
 						name="email"
 						control={control}
 						rules={{
-							required: 'Email is required',
+							required: 'Введите свою почту',
 							pattern: {
 								value: validEmail,
-								message: 'Invalid Email',
+								message: 'Неправильный адрес',
 							},
 						}}
 						render={({ field: { value, onChange, name } }) => (
@@ -59,7 +59,7 @@ const Auth: FC = () => {
 								helperText={errors.email?.message}
 								type="email"
 								value={value}
-								label={'email'}
+								label={'Почта'}
 								onChange={onChange}
 								name={name}
 							/>
@@ -71,10 +71,10 @@ const Auth: FC = () => {
 						rules={
 							isPasswordRequired
 								? {
-										required: 'Password is required',
+										required: 'Введите пароль',
 										minLength: {
 											value: 6,
-											message: 'Min length must be more 6 symbols',
+											message: 'Пароль должен быть больше 6 символов',
 										},
 								  }
 								: {}
@@ -84,7 +84,7 @@ const Auth: FC = () => {
 								helperText={errors.password?.message}
 								type="password"
 								value={value}
-								label={'password'}
+								label={'Пароль'}
 								onChange={onChange}
 								name={name}
 							/>
@@ -94,18 +94,22 @@ const Auth: FC = () => {
 						{formType === 'login' ? (
 							<>
 								<p className="break-words ">
-									Do not you have an account?
-									<span onClick={() => setFormType('register')}>Register</span>
+									Нет аккаунта?
+									<span onClick={() => setFormType('register')}>
+										Зарегистритуйтесь
+									</span>
 								</p>
-								<Button>Login</Button>
+								<Button>Войти</Button>
 							</>
 						) : (
 							<>
 								<p className="break-words ">
-									Do you already have an account?
-									<span onClick={() => setFormType('login')}>Log in</span>
+									Уже есть аккаунт?
+									<span onClick={() => setFormType('login')}>
+										Авторизуетесь
+									</span>
 								</p>
-								<Button>Register</Button>
+								<Button>Далее</Button>
 							</>
 						)}
 					</div>

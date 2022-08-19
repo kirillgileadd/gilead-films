@@ -1,4 +1,4 @@
-import { TypeMaterialIcons } from '@/shared/types/itcon.types'
+import { TypeMaterialIcons } from '@/shared/../../../../types/itcon.types'
 
 export interface IMenuItem {
 	icon: TypeMaterialIcons

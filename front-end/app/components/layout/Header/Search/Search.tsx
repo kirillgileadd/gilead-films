@@ -1,16 +1,21 @@
 import cl from 'classnames'
-import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
-import { useQuery } from 'react-query'
+import {
+	ChangeEvent,
+	FC,
+	memo,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from 'react'
 
 import GenreSearchList from '@/components/layout/Header/Search/GenreSearchList'
 import MoviesSearchList from '@/components/layout/Header/Search/MoviesSearchList'
+import { useSearch } from '@/components/layout/Header/Search/useSearch'
 
 import SearchInput from '@/ui/Input/SearchInput'
 
 import { useDebounce } from '@/hooks/useDebounce'
-
-import { GenreService } from '@/services/GenreSevice'
-import MovieService from '@/services/MovieService'
 
 import styles from './Search.module.scss'
 
@@ -20,6 +25,9 @@ const Search: FC = () => {
 	const [dropdownVisible, setDropdownVisible] = useState(false)
 	const searchInnerRef = useRef<any>()
 	const searchInputRef = useRef<HTMLInputElement>(null)
+	const debounceTerm = useDebounce(searchTerm, 500)
+	const { searchGenresQuery, searchMoviesQuery, isSuccess } =
+		useSearch(debounceTerm)
 
 	useEffect(() => {
 		document.addEventListener('click', (event: any) => {
@@ -34,31 +42,9 @@ const Search: FC = () => {
 		})
 	}, [])
 
-	const debounceTerm = useDebounce(searchTerm, 500)
-
-	const { data: moviesData, isSuccess: moviesSuccess } = useQuery(
-		['search movies', debounceTerm],
-		() => MovieService.getAllMovies(debounceTerm),
-
-		{
-			select: ({ data }) => data,
-			enabled: !!debounceTerm,
-		}
-	)
-	const { data: genresData, isSuccess: genresSuccess } = useQuery(
-		['search genres', debounceTerm],
-		() => GenreService.getGenres(debounceTerm),
-
-		{
-			select: ({ data }) => data,
-			enabled: !!debounceTerm,
-		}
-	)
-	const isSuccess = genresSuccess && moviesSuccess
-
-	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleSearch = useCallback((e: ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value)
-	}
+	}, [])
 
 	return (
 		<div
@@ -72,14 +58,15 @@ const Search: FC = () => {
 			/>
 			{isSuccess && searchTerm && (
 				<div className={styles.list__box}>
-					{genresData!.length === 0 && moviesData!.length === 0 ? (
+					{searchGenresQuery.data!.length === 0 &&
+					searchMoviesQuery.data!.length === 0 ? (
 						<>
 							<p>Ничего не найдено, попробуйте еще раз ;)</p>
 						</>
 					) : (
 						<>
-							<GenreSearchList genres={genresData || []} />
-							<MoviesSearchList movies={moviesData || []} />
+							<GenreSearchList genres={searchGenresQuery.data || []} />
+							<MoviesSearchList movies={searchMoviesQuery.data || []} />
 						</>
 					)}
 				</div>
@@ -88,4 +75,4 @@ const Search: FC = () => {
 	)
 }
 
-export default Search
+export default memo(Search)

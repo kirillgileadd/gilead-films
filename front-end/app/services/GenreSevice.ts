@@ -1,13 +1,13 @@
 import { IGenreItem } from '@/components/Genres/genres.interface'
 
-import { getGenresUrl } from '@/configs/api.config'
+import { $api } from '@/utils/api/api.interceptors'
 
-import { axiosClassic } from '../api/api.interceptors'
+import { getGenresUrl } from '@/configs/api.config'
 
 
 export const GenreService = {
 	async getGenres(searchTerm?: string) {
-		return await axiosClassic.get<IGenreItem[]>(getGenresUrl(''), {
+		return await $api.get<IGenreItem[]>(getGenresUrl(''), {
 			params: {
 				...(searchTerm ? { searchTerm: searchTerm } : {}),
 			},

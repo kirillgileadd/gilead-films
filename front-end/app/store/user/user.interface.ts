@@ -1,8 +1,8 @@
-import { IUser } from '@/shared/types/user.types'
+import { IUser } from '@/shared/../../types/user.types'
 
 export interface IUserState {
 	email: string
-	password: string
+	isAdmin: boolean
 }
 
 export interface ITokens {

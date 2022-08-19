@@ -19,6 +19,7 @@ module.exports = {
 				300: '#d9dae8',
 				500: '#A2ABBA',
 				600: '#829BB1',
+				700: '#677C8D',
 				800: '#3E4B54',
 			},
 			transparent: colors.transparent,
@@ -83,13 +84,13 @@ module.exports = {
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {
-					backgroundColor: primary,
+					backgroundColor: theme('colors.gray.600'),
 					color: '#fff',
 					borderRadius: '0.65rem',
 					padding: '8px 15px',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
-						backgroundColor: '#8300D3',
+						backgroundColor: theme('colors.gray.700'),
 					},
 				},
 

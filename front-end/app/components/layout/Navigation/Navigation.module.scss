@@ -1,11 +1,29 @@
 .navigation {
 	@apply py-layout flex flex-col;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		@apply bg-gray-300;
+	}
+
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+		@apply bg-gray-600;
+	}
+
 	> div > a {
 		@apply mb-8;
 	}
 
 	.random__movie {
-		@apply relative flex text-center flex-col justify-center items-center mx-layout mt-auto bg-gray-200 p-4 pt-6 rounded-3xl;
+		@apply relative flex text-center flex-col justify-center items-center mx-layout mt-auto bg-gray-200 p-4 pt-8 rounded-3xl;
 		> div {
 			@apply bg-gray-600 p-2 rounded-xl absolute left-1/2 -top-6 -translate-x-1/2;
 			> svg {
@@ -19,10 +37,6 @@
 
 		> p {
 			@apply mb-4;
-		}
-
-		> button {
-			@apply bg-gray-600;
 		}
 	}
 }

@@ -14,10 +14,10 @@ const LogoutButton = () => {
 	}
 
 	return (
-		<li>
+		<li className="cursor-pointer">
 			<a onClick={onLogout}>
 				<MaterialIcon icon={'MdLogout'} />
-				<p>Logout</p>
+				<p>Выйти</p>
 			</a>
 		</li>
 	)

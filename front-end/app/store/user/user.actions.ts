@@ -3,11 +3,10 @@ import { toastr } from 'react-redux-toastr'
 
 import AuthService from '@/services/AuthSevice'
 
+import { errorCatch } from '@/utils/api/api.helpers'
 import { toastError } from '@/utils/api/toastr.error'
 
 import { InterfaceEmailPassword } from '@/store/user/user.interface'
-
-import { errorCatch } from '../../api/api.helpers'
 
 
 export const register = createAsyncThunk(
@@ -16,7 +15,7 @@ export const register = createAsyncThunk(
 		try {
 			const response = await AuthService.register(userData)
 			toastr.success('Registration', 'Completed successfully')
-			return response.data
+			return response.data.user
 		} catch (e) {
 			toastError(e)
 			return thunkApi.rejectWithValue(e)
@@ -30,7 +29,7 @@ export const login = createAsyncThunk(
 		try {
 			const response = await AuthService.login(userData)
 			toastr.success('Login', 'Completed successfully')
-			return response.data
+			return response.data.user
 		} catch (e) {
 			toastError(e)
 			return thunkApi.rejectWithValue(e)
@@ -39,7 +38,8 @@ export const login = createAsyncThunk(
 )
 
 export const logout = createAsyncThunk('auth/logout', async () => {
-	await AuthService.logout()
+	const response = await AuthService.logout()
+	toastr.success('Успешно', 'Вы успешно вышли')
 })
 
 export const checkAuth = createAsyncThunk(
